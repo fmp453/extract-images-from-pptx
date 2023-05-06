@@ -49,8 +49,7 @@ class SecondTabState extends State<SecondTab>{
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () async {
-                        // ファイル名がpptxで終わらない場合にエラーダイアログを出す(本当は拡張子だけで判定するのは危険な気がするがとりあえずこれでやる)
-                        // footnote: pptx以外のファイルの拡張子をpptxにされると危険
+                        // ファイルがpptxでない場合にエラーダイアログを出す
                         if(await isPPTX(_filePath!) == false){
                           // ignore: use_build_context_synchronously
                           openFileErrorDialog(context);
