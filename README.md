@@ -10,3 +10,9 @@ extract images from pptx file on Mac
 - 画像以外のファイルを全て消す
 
 を実行してくれるものを作りました。
+
+
+
+## License
+
+[MIT License](License.txt)
