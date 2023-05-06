@@ -85,10 +85,14 @@ Future<String> extractImagesFromPPTX(dynamic targetFile, TextEditingController t
   return s;
 }
 
-// 本当はファイル形式を確認すべきだがここでは拡張子を見る
-Future<bool> isPPTX(String fileName) async{
-  int n = fileName.length;
-  return fileName.substring(n - 4, n) == "pptx";
+// ファイルのヘッダーを見てパワポのファイルかどうかを判定する
+Future<bool> isPPTX(String filePath) async {
+  final file = File(filePath);
+  final List<int> headerBytes = await file.openRead(0, 8).first;
+  final header = headerBytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join(' ');
+  debugPrint(header);
+  // left is ppt, right is pptx
+  return header == 'd0 cf 11 e0 a1 b1 1a e1' || header == '50 4b 03 04 14 00 06 00';
 }
 
 Future<void> fromPPTX2ZIP(dynamic targetFile) async {
