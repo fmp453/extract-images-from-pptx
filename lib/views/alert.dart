@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// https://zenn.dev/mamoru_takami/articles/b76b734f2d7783
 
 class CustomAlertDialog extends StatelessWidget{
   const CustomAlertDialog({
