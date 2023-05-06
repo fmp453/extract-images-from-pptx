@@ -65,7 +65,7 @@ class FisrtTabState extends State<FisrtTab>{
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () async {
-                      // ファイル名がpptxで終わらない場合にエラーダイアログを出す
+                      // ファイルがpptxでない場合にエラーダイアログを出す
                       if(await isPPTX(selectedFileInfo.name) == false){
                         // ignore: use_build_context_synchronously
                         openFileErrorDialog(context);
